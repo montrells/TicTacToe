@@ -1,0 +1,98 @@
+/*
+----------------------------------------------
+TAGS
+----------------------------------------------
+*/
+
+* {   /*Universal*/
+    margin: 0;        /*clearing defaults*/
+    padding: 0;
+}
+
+html {
+    background-image: url(https://img.michaels.com/L6/3/IOGLO/860095129/206156341/10267066.jpg?fit=inside|1024:1024);
+}
+header {
+    text-align: center;
+    margin: 50px;   /*from all sides*/
+}
+
+canvas{
+    border: 1px solid brown;
+    background-color: brown;
+    text-align: center;
+}
+button {
+
+}
+p {
+    font-size: 24px;
+    margin: 15px;
+    color: navy;
+}
+h2{
+    font-size: 34px;
+    color: navy;
+}
+button {
+    margin-top: 15px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    color: navy;
+    font-family: sans-serif;
+}
+
+canvas:hover {
+    background-color: navy;
+}
+button:hover {
+    background-color: brown;
+    color: white;
+}
+
+/*
+----------------------------------------------
+ID'S
+----------------------------------------------
+*/
+
+#header{
+    font-size: 50px;   /*increase font size*/
+    font-family: sans-serif;
+    color: navy;
+}
+
+h1#result{
+    font-size: 30px;
+    font-family: sans-serif;
+    color: black;
+    text-align: center;
+    margin-bottom: 30px; /*bottom space from the header ID of TIC TAC TOE*/
+}
+ #game {
+     position: relative; /*change with the screen size*/
+     width: 640px;  /*double pixels because of the rules*/
+     height: 320px;
+     margin: 0 auto;
+ }
+ #ticTacToe-container{
+     position: relative;
+     margin: 0 auto;
+     height: 319px;
+     width: 319px;
+     display: inline-block;
+     float: left; /*floated to the left of the rules container*/
+ }
+
+ #rules{
+     position: relative;
+     width: 319px;
+     height: 319px;
+     text-align: center;
+     display: inline-block;
+     float: right;  /*floated to the right side of the TicTacToe container*/
+
+ }
