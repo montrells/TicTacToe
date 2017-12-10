@@ -15,8 +15,8 @@ window.onload = function() {  //make sure this Anonymous function load....., aft
     var gameOver = false;
 
     filled = [false, false, false, false, false, false, false, false, false];
-    symbols = ['','','','','', '','','',''];
-    winner = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+    symbols = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+    winner = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 
     //2. NewGame event function
     // New Game click event
@@ -27,39 +27,50 @@ window.onload = function() {  //make sure this Anonymous function load....., aft
     function newGame() {
         document.location.reload();
     }
+
     //3.Canvas is clicked on box number
     document.getElementById("ticTacToe-container").addEventListener("click", function (even) {
         boxClick(even.target.id);
     });
+
     // defining the boxClicking function
     function boxClick(numId) {
         box = document.getElementById(numId);
         context = box.getContext("2d");
 
         switch (numId) {
-            case "square1": num = 1;
-            break;
-            case "square2": num = 2;
+            case "square1":
+                num = 1;
                 break;
-            case "square3": num = 3;
+            case "square2":
+                num = 2;
                 break;
-            case "square4": num = 4;
+            case "square3":
+                num = 3;
                 break;
-            case "square5": num = 5;
+            case "square4":
+                num = 4;
                 break;
-            case "square6": num = 6;
+            case "square5":
+                num = 5;
                 break;
-            case "square7": num = 7;
+            case "square6":
+                num = 6;
                 break;
-            case "square8": num = 8;
+            case "square7":
+                num = 7;
                 break;
-            case "square9": num = 9;
+            case "square8":
+                num = 8;
+                break;
+            case "square9":
+                num = 9;
                 break;
 
         }
         //Draw X and O on the canvas
-        if(filled[num-1] === false){
-            if(gameOver === false) {
+        if (filled[num - 1] === false) {
+            if (gameOver === false) {
                 if (numberOfTurns % 2 !== 0) {
                     context.beginPath();
                     context.moveTo(15, 15);
@@ -81,12 +92,29 @@ window.onload = function() {  //make sure this Anonymous function load....., aft
                 }
                 numberOfTurns++;
                 filled[num - 1] = true;
+
+                //Checking for winner
+
+                var sym = symbols[num - 1];
+                for (var i = 0; i < winner.length; i++) { //looping through the winner's 8 possibilities
+                    //winner[0] = [0,1,2]
+                    if ((symbols[winner[i][0]] === sym) && (symbols[winner[i][1]] === sym) && (symbols[winner[i][2]] === sym)) {
+                        document.getElementById("result").innerText = "Player '" + sym + "' Won!";
+                        gameOver = true;
+                    }
+                }
+                    //conditions if a Draw
+                    if (numberOfTurns > 9 && gameOver !== true) {
+                        document.getElementById("result").innerText= "GAME IS A DRAW!!";
+                    }
+            }
+            else {
+                alert("Please click the New Game Button and start again!");
+                }
+            }
+            else {
+                alert("Box is already filled. Please make another choice or Restart if you would like");
             }
         }
-        else{
 
-        }
     }
-
-
-}
